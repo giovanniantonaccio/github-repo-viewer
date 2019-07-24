@@ -50,6 +50,14 @@ export default class Main extends Component {
 
       const response = await api.get(`/repos/${newRepo}`);
 
+      const duplicatedRepository = repositories.findIndex(
+        repository => response.data.full_name === repository.name
+      );
+
+      if (duplicatedRepository !== -1) {
+        throw String('Duplicated repository');
+      }
+
       const data = {
         name: response.data.full_name,
       };
@@ -60,6 +68,7 @@ export default class Main extends Component {
         loading: false,
       });
     } catch (error) {
+      console.error(error);
       this.setState({
         loading: false,
         error: true,
