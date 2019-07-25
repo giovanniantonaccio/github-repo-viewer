@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FaGithubAlt, FaPlus, FaSpinner } from 'react-icons/fa';
+import { FaGithub, FaPlus, FaSpinner, FaTrashAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 import api from '../../services/api';
@@ -82,7 +82,7 @@ export default class Main extends Component {
     return (
       <Container>
         <h1>
-          <FaGithubAlt />
+          <FaGithub color="#eee" />
           Repositórios
         </h1>
 
@@ -96,9 +96,9 @@ export default class Main extends Component {
 
           <SubmitButton loading={loading ? 1 : 0}>
             {loading ? (
-              <FaSpinner color="#FFF" size={14} />
+              <FaSpinner color="#ebf1ed" size={14} />
             ) : (
-              <FaPlus color="#FFF" size={14} />
+              <FaPlus color="#ebf1ed" size={14} />
             )}
           </SubmitButton>
         </Form>
@@ -106,9 +106,11 @@ export default class Main extends Component {
         <List>
           {repositories.map(repository => (
             <li key={repository.name}>
-              <span>{repository.name}</span>
               <Link to={`/repository/${encodeURIComponent(repository.name)}`}>
-                Detalhes
+                <span>{repository.name}</span>
+              </Link>
+              <Link to={`/repository/${encodeURIComponent(repository.name)}`}>
+                <FaTrashAlt color="#ebf1ed" size={16} />
               </Link>
             </li>
           ))}

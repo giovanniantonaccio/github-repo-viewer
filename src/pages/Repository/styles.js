@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Loading = styled.div`
-  color: #fff;
+  color: #ebf1ed;
   font-size: 30px;
   font-weight: bold;
   display: flex;
@@ -16,15 +16,20 @@ export const Owner = styled.header`
   align-items: center;
 
   a {
-    color: #7159c1;
+    color: #ebf1ed;
     font-size: 16px;
     text-decoration: none;
+
+    &:hover {
+      color: #bc5828;
+    }
   }
 
   img {
     width: 120px;
     border-radius: 50%;
     margin-top: 20px;
+    border: 2px solid #ebf1ed;
   }
 
   h1 {
@@ -35,7 +40,7 @@ export const Owner = styled.header`
   p {
     margin-top: 5px;
     font-size: 14px;
-    color: #666;
+    color: #ebf1ed;
     line-height: 1.4;
     text-align: center;
     max-width: 400px;
@@ -45,13 +50,13 @@ export const Owner = styled.header`
 export const IssueList = styled.ul`
   margin-top: 30px;
   padding-top: 30px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #ebf1ed;
   list-style: none;
 
   li {
     display: flex;
     padding: 15px 10px;
-    border: 1px solid #eee;
+    border: 1px solid #ebf1ed;
     border-radius: 4px;
 
     & + li {
@@ -63,7 +68,7 @@ export const IssueList = styled.ul`
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    border: 2px solid #eee;
+    border: 2px solid #ebf1ed;
   }
 
   div {
@@ -78,16 +83,16 @@ export const IssueList = styled.ul`
 
       a {
         text-decoration: none;
-        color: #333;
+        color: #ebf1ed;
 
         &:hover {
-          color: #7159c1;
+          color: #bc5828;
         }
       }
 
       span {
-        background: #eee;
-        color: #333;
+        background: #ebf1ed;
+        color: #181818;
         border-radius: 2px;
         font-size: 12px;
         font-weight: 600;
@@ -101,7 +106,7 @@ export const IssueList = styled.ul`
     p {
       margin-top: 5px;
       font-size: 12px;
-      color: #999;
+      color: #888d96;
     }
   }
 `;
