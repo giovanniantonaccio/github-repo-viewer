@@ -67,11 +67,12 @@ export default class Repository extends Component {
               <div>
                 <strong>
                   <a href={issue.html_url}>{issue.title}</a>
+                  <br />
                   {issue.labels.map(label => (
                     <span key={String(label.id)}>{label.name}</span>
                   ))}
                 </strong>
-                <p>{issue.user.login}</p>
+                <a href={issue.user.html_url}>{issue.user.login}</a>
               </div>
             </li>
           ))}

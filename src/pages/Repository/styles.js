@@ -55,6 +55,7 @@ export const IssueList = styled.ul`
 
   li {
     display: flex;
+    align-items: center;
     padding: 15px 10px;
     border: 1px solid #ebf1ed;
     border-radius: 4px;
@@ -93,20 +94,29 @@ export const IssueList = styled.ul`
       span {
         background: #ebf1ed;
         color: #181818;
-        border-radius: 2px;
-        font-size: 12px;
+        border-radius: 3px;
+        font-size: 10px;
         font-weight: 600;
-        height: 20px;
+        max-height: 16px;
         padding: 3px 4px;
-        margin-left: 10px;
-        line-height: 2;
+        line-height: 1;
+        border: 1px solid #ebf1ed;
+
+        & + span {
+          margin-left: 10px;
+        }
       }
     }
 
-    p {
-      margin-top: 5px;
+    & > a {
+      margin-top: 10px;
       font-size: 12px;
       color: #888d96;
+      text-decoration: none;
+
+      &:hover {
+        color: #bc5828;
+      }
     }
   }
 `;
