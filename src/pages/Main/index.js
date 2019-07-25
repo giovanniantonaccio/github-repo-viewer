@@ -76,6 +76,19 @@ export default class Main extends Component {
     }
   };
 
+  handleDelete = repository => {
+    const { repositories } = this.state;
+
+    const newRepositories = [...repositories];
+
+    const index = newRepositories.findIndex(r => r.name === repository);
+
+    if (index !== -1) {
+      newRepositories.splice(index, 1);
+      this.setState({ repositories: newRepositories });
+    }
+  };
+
   render() {
     const { newRepo, repositories, loading, error } = this.state;
 
@@ -109,9 +122,11 @@ export default class Main extends Component {
               <Link to={`/repository/${encodeURIComponent(repository.name)}`}>
                 <span>{repository.name}</span>
               </Link>
-              <Link to={`/repository/${encodeURIComponent(repository.name)}`}>
-                <FaTrashAlt color="#ebf1ed" size={16} />
-              </Link>
+              <FaTrashAlt
+                color="#ebf1ed"
+                size={16}
+                onClick={() => this.handleDelete(repository.name)}
+              />
             </li>
           ))}
         </List>

@@ -84,6 +84,7 @@ export const List = styled.ul`
 
     svg:hover {
       fill: #bc5828;
+      cursor: pointer;
     }
   }
 `;
