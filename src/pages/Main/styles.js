@@ -73,6 +73,23 @@ export const List = styled.ul`
       border-top: 1px solid #ebf1ed;
     }
 
+    div {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: 2px solid #ebf1ed;
+        margin-right: 15px;
+
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+    }
+
     a {
       color: #ebf1ed;
       text-decoration: none;

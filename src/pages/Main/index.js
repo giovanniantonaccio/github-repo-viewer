@@ -60,6 +60,8 @@ export default class Main extends Component {
 
       const data = {
         name: response.data.full_name,
+        organization_avatar: response.data.organization.avatar_url,
+        organization_url: response.data.organization.html_url,
       };
 
       this.setState({
@@ -119,9 +121,17 @@ export default class Main extends Component {
         <List>
           {repositories.map(repository => (
             <li key={repository.name}>
-              <Link to={`/repository/${encodeURIComponent(repository.name)}`}>
-                <span>{repository.name}</span>
-              </Link>
+              <div>
+                <a href={repository.organization_url}>
+                  <img
+                    src={repository.organization_avatar}
+                    alt={repository.name}
+                  />
+                </a>
+                <Link to={`/repository/${encodeURIComponent(repository.name)}`}>
+                  <span>{repository.name}</span>
+                </Link>
+              </div>
               <FaTrashAlt
                 color="#ebf1ed"
                 size={16}
