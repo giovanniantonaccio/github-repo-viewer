@@ -1,4 +1,14 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
 
 export const Loading = styled.div`
   color: #ebf1ed;
@@ -8,6 +18,10 @@ export const Loading = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
+
+  svg {
+    animation: ${rotate} 2s linear infinite;
+  }
 `;
 
 export const Owner = styled.header`
@@ -91,6 +105,10 @@ export const IssueList = styled.ul`
         }
       }
 
+      br {
+        line-height: 1.5;
+      }
+
       span {
         background: #ebf1ed;
         color: #181818;
@@ -99,7 +117,6 @@ export const IssueList = styled.ul`
         font-weight: 600;
         max-height: 16px;
         padding: 3px 4px;
-        line-height: 1;
         border: 1px solid #ebf1ed;
 
         & + span {

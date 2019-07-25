@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { FaSpinner } from 'react-icons/fa';
+
 import { Link } from 'react-router-dom';
 
 import api from '../../services/api';
@@ -46,9 +48,12 @@ export default class Repository extends Component {
 
   render() {
     const { repository, issues, loading } = this.state;
-    console.log(repository);
     if (loading) {
-      return <Loading>Carregando</Loading>;
+      return (
+        <Loading>
+          <FaSpinner color="#ebf1ed" size={60} />
+        </Loading>
+      );
     }
 
     return (
