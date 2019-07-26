@@ -135,6 +135,8 @@ export const IssueList = styled.ul`
 
     strong {
       font-size: 16px;
+      display: flex;
+      flex-direction: column;
 
       a {
         text-decoration: none;
@@ -145,28 +147,33 @@ export const IssueList = styled.ul`
         }
       }
 
-      br {
-        line-height: 1.5;
-      }
+      div {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin: 5px 0 0 0;
 
-      span {
-        background: #ebf1ed;
-        color: #181818;
-        border-radius: 3px;
-        font-size: 10px;
-        font-weight: 600;
-        max-height: 16px;
-        padding: 3px 4px;
-        border: 1px solid #ebf1ed;
+        span {
+          background: #ebf1ed;
+          color: #181818;
+          border-radius: 3px;
+          font-size: 10px;
+          font-weight: 600;
+          padding: 3px 4px;
+          border: 1px solid #ebf1ed;
+          line-height: 1;
+          white-space: nowrap;
+          margin: 0 5px 5px 0;
+        }
 
-        & + span {
-          margin-left: 10px;
+        span:first-child {
+          margin-left: 0px;
         }
       }
     }
 
     & > a {
-      margin-top: 10px;
       font-size: 12px;
       color: #888d96;
       text-decoration: none;
