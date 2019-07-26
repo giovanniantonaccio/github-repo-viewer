@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
 const rotate = keyframes`
   from {
@@ -61,11 +61,51 @@ export const Owner = styled.header`
   }
 `;
 
-export const IssueList = styled.ul`
+export const Filter = styled.div`
   margin-top: 30px;
   padding-top: 30px;
   border-top: 1px solid #ebf1ed;
+  display: flex;
+  justify-content: space-around;
+`;
+
+export const FilterItem = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  font-size: 15px;
+
+  svg {
+    margin-right: 10px;
+  }
+
+  &:hover {
+    color: #bc5828;
+
+    svg {
+      fill: #bc5828;
+    }
+  }
+
+  ${props =>
+    props.selected &&
+    css`
+      color: #bc5828;
+      cursor: not-allowed;
+
+      svg {
+        fill: #bc5828;
+      }
+    `}
+`;
+
+export const IssueList = styled.ul`
   list-style: none;
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid #ebf1ed;
 
   li {
     display: flex;
@@ -154,6 +194,14 @@ export const Pagination = styled.div`
     &[disabled] {
       cursor: not-allowed;
       opacity: 0.6;
+    }
+
+    &:hover {
+      color: #bc5828;
+
+      svg {
+        fill: #bc5828;
+      }
     }
   }
 

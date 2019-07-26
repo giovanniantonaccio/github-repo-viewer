@@ -1,13 +1,27 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { FaSpinner, FaAngleLeft, FaAngleRight } from 'react-icons/fa';
+import {
+  FaSpinner,
+  FaAngleLeft,
+  FaAngleRight,
+  FaCheckCircle,
+  FaExclamationCircle,
+  FaInfoCircle,
+} from 'react-icons/fa';
 
 import { Link } from 'react-router-dom';
 
 import api from '../../services/api';
 
 import Container from '../../components/Container';
-import { Loading, Owner, IssueList, Pagination } from './styles';
+import {
+  Loading,
+  Owner,
+  IssueList,
+  Filter,
+  FilterItem,
+  Pagination,
+} from './styles';
 
 export default class Repository extends Component {
   static propTypes = {
@@ -52,6 +66,15 @@ export default class Repository extends Component {
     });
   }
 
+  handleFilter = async filter => {
+    await this.setState({
+      state: filter,
+      page: 1,
+    });
+
+    this.loadIssues();
+  };
+
   handlePagination = async action => {
     const { page } = this.state;
 
@@ -84,7 +107,7 @@ export default class Repository extends Component {
   }
 
   render() {
-    const { repository, issues, loading, page, limit } = this.state;
+    const { repository, issues, loading, page, limit, state } = this.state;
 
     if (loading) {
       return (
@@ -102,6 +125,32 @@ export default class Repository extends Component {
           <h1>{repository.name}</h1>
           <p>{repository.description}</p>
         </Owner>
+
+        <Filter>
+          <FilterItem
+            selected={state === 'all'}
+            type="submit"
+            onClick={() => this.handleFilter('all')}
+          >
+            <FaInfoCircle color="#ebf1ed" size={20} /> All
+          </FilterItem>
+
+          <FilterItem
+            type="submit"
+            selected={state === 'open'}
+            onClick={() => this.handleFilter('open')}
+          >
+            <FaExclamationCircle color="#ebf1ed" size={20} /> Open
+          </FilterItem>
+
+          <FilterItem
+            type="submit"
+            selected={state === 'closed'}
+            onClick={() => this.handleFilter('closed')}
+          >
+            <FaCheckCircle color="#ebf1ed" size={20} /> Closed
+          </FilterItem>
+        </Filter>
 
         <IssueList>
           {issues.map(issue => (
