@@ -29,6 +29,10 @@ export const Owner = styled.header`
   flex-direction: column;
   align-items: center;
 
+  a.organization:hover {
+    opacity: 0.6;
+  }
+
   a {
     color: #ebf1ed;
     font-size: 16px;

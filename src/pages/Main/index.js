@@ -122,7 +122,7 @@ export default class Main extends Component {
           {repositories.map(repository => (
             <li key={repository.name}>
               <div>
-                <a href={repository.organization_url}>
+                <a className="organization" href={repository.organization_url}>
                   <img
                     src={repository.organization_avatar}
                     alt={repository.name}

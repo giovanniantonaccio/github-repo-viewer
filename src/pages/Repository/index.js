@@ -121,7 +121,12 @@ export default class Repository extends Component {
       <Container>
         <Owner>
           <Link to="/">Voltar aos repositórios</Link>
-          <img src={repository.owner.avatar_url} alt={repository.owner.login} />
+          <a className="organization" href={repository.organization.html_url}>
+            <img
+              src={repository.owner.avatar_url}
+              alt={repository.owner.login}
+            />
+          </a>
           <h1>{repository.name}</h1>
           <p>{repository.description}</p>
         </Owner>
