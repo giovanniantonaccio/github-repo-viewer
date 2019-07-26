@@ -121,7 +121,12 @@ export default class Repository extends Component {
       <Container>
         <Owner>
           <Link to="/">Voltar aos repositórios</Link>
-          <a className="organization" href={repository.organization.html_url}>
+          <a
+            className="organization"
+            href={repository.organization.html_url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
               src={repository.owner.avatar_url}
               alt={repository.owner.login}
@@ -163,14 +168,26 @@ export default class Repository extends Component {
               <img src={issue.user.avatar_url} alt={issue.user.login} />
               <div>
                 <strong>
-                  <a href={issue.html_url}>{issue.title}</a>
+                  <a
+                    href={issue.html_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {issue.title}
+                  </a>
                   <div>
                     {issue.labels.map(label => (
                       <span key={String(label.id)}>{label.name}</span>
                     ))}
                   </div>
                 </strong>
-                <a href={issue.user.html_url}>{issue.user.login}</a>
+                <a
+                  href={issue.user.html_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {issue.user.login}
+                </a>
               </div>
             </li>
           ))}
